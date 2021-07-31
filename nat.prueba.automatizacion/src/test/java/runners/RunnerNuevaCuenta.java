@@ -7,7 +7,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(value = Cucumber.class)
 @CucumberOptions(features = "features/NuevaCuenta.feature", 
-glue = { "steps" }, 
+glue = { "stepDefinitions" }, 
 tags = "@tagCrear1")
 public class RunnerNuevaCuenta {
 

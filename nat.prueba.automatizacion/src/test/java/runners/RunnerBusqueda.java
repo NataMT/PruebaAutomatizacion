@@ -8,11 +8,12 @@ import io.cucumber.junit.Cucumber;
 
 @RunWith(value=Cucumber.class)
 @CucumberOptions(features = "features/Busqueda.feature", 
-glue= {"steps", "runners"},
+glue= {"stepDefinitions"},
 plugin = { "pretty","html:target/cucumber-reports/cucumber-pretty", 
         "json:target/cucumber-reports/CucumberTestReport.json",
         "rerun:target/cucumber-reports/rerun.txt" },
-monochrome = true)
+monochrome = true,
+tags= "@tag1")
 
 public class RunnerBusqueda {
 	
