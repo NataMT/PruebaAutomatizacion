@@ -1,3 +1,4 @@
+#Author : Natalia Mora
 
 @tagCrear
 Feature: Creacion de cuenta
@@ -6,12 +7,11 @@ Feature: Creacion de cuenta
   @tagCrear1
   Scenario: Creacion de cuenta
     Given Me encuentro en la pagina principal
-    And busco el icono para el login
+    And busco el icono de login
     When presiono create new account
     And se despliega la pagina de creacion de cuenta
     When Lleno los campos requeridos
     And marco el checkbox para aceptar los terminos
-    And presiono el icono de registro
+    And presiono el boton de registro
     Then se inicia sesion
     And se cierra la pagina
-    
