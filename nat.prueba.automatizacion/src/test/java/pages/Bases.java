@@ -3,14 +3,18 @@ package pages;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+//Métodos a utilizar dentro del proceso de creación de cuenta
 
 public class Bases {
 	
 	static WebDriver driver;
 	
+	//Abrir el browser
 	public static void abrir_pagina(String url) {
 	
 	System.setProperty("webdriver.chrome.driver",
@@ -24,23 +28,44 @@ public class Bases {
 	driver.manage().window().maximize();
 	}
 	
-	public static void encontrar_login(String botonSignIn) {
-		driver.findElement(By.xpath(botonSignIn));
+	// Hace scroll en la página
+	public static void scrollPagina() throws InterruptedException {
+		
+		//driver.getPageSource().contains("welcome");
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0, 650)");
+		
+		Thread.sleep(2000);
+
 	}
 	
-	public static void enviar_valores(String val, String locator) {
-		WebElement eleLogin = driver.findElement(By.xpath(locator));
+	// Clickea el boton de inicio de sesión
+	public static void encontrar_login(By botonSignIn) throws InterruptedException {
+		driver.findElement(botonSignIn).click();
+		
+		Thread.sleep(5000);
+	}
+	
+	//Rellena los datos requeridos
+	public static void enviar_valores(String val, By locator) {
+		WebElement eleLogin = driver.findElement(locator);
 		eleLogin.clear();
 		eleLogin.sendKeys(val);
 		
 	}
 	
-	public static void metodoClick(String clickLocator) throws InterruptedException {
+	// Hace click
+	public static void metodoClick(By clickLocator) throws InterruptedException {
 		System.out.println("Clickea");
-		driver.findElement(By.xpath(clickLocator)).click();
+		driver.findElement(clickLocator).click();
 		
 		Thread.sleep(5000);
 		
+	}
+	
+	//Cierra el browser
+	public static void cierrePagina() {
+		driver.close();
 	}
 
 
