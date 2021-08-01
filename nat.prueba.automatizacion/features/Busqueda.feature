@@ -5,10 +5,10 @@ Feature: Busqueda de productos
   @tag1
   Scenario: Busqueda de producto
     Given entre a la pagina
-    And navego por la pagina
-    When encuentro el buscador
-    And escribo mouse y comienzo la busqueda
-    Then veo todos los resultados
+    And encuentro el buscador
+    When escribo mouse y comienzo la busqueda
+    And se despliegan los resultados
+    Then navego por los resultados
     And cierro el navegador
 
   Scenario Outline: Buscar otros productos

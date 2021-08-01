@@ -2,11 +2,10 @@ package runners;
 
 import org.junit.runner.RunWith;
 
-//Glue code 
-
-
 import io.cucumber.junit.CucumberOptions;
 import io.cucumber.junit.Cucumber;
+
+//Glue code 
 
 @RunWith(value=Cucumber.class)
 @CucumberOptions(features = "features/Busqueda.feature", 
