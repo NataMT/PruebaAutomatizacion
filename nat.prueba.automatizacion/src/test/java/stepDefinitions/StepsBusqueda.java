@@ -53,19 +53,23 @@ public class StepsBusqueda{
 	}
 
 	
-	@And("veo todos los resultados")
+	@And("se despliegan los resultados")
 	public void ver_todos() {
 		
-		//Ver todo
-		driver.getPageSource().contains("View All");
-		driver.findElement(By.xpath("//a[contains(text(),'View All')]")).click();
+		
+		//Click en "View All"
+		//class searchPopUp
+		driver.getPageSource().contains("searchPopUp");
+		driver.findElement(By.linkText("View All")).click();
 	    
 		//cerrar buscador
-		driver.findElement(By.xpath("/html/body/header/nav/ul/li[4]/a/div/div[1]/div/div/div/img"));
+		
+		driver.findElement(By.cssSelector("//img[contains(@src,'/css/images/closeDark.png')]")).click();
+		
 	}
 	
 
-	@Then("navego por la pagina")
+	@Then("navego por los resultados")
 	public void navego_por_la_pagina() {
 		
 		//Navegar resultados
